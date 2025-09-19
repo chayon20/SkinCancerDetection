@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Page Title -->
+<h1 style="text-align:center; color:#2c3e50; font-size:2.2em; margin-bottom:20px;">
+    Welcome to Skin Cancer Detection
+</h1>
+<p style="text-align:center; font-size:1.1em; margin-bottom:40px; max-width:700px; margin-left:auto; margin-right:auto;">
+    Upload a skin image and our AI model will predict potential skin cancer with <strong>98.57% accuracy</strong>.
+</p>
+
+<!-- Skin Cancer Types Section -->
+<h2 style="margin-bottom:25px; color:#2c3e50; text-align:center;">Detected Skin Cancer Types</h2>
+<div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:25px; justify-items:center;">
+    {% set cancer_types = [
+        {"title":"Actinic Keratoses","desc":"Rough, scaly patches on sun-exposed areas. Early detection is important.","color":"#FDEBD0"},
+        {"title":"Basal Cell Carcinoma","desc":"Slow-growing skin cancer that rarely spreads but can cause local damage.","color":"#D6EAF8"},
+        {"title":"Benign Keratosis-like Lesions","desc":"Non-cancerous lesions that may look like warts or scaly patches.","color":"#E8DAEF"},
+        {"title":"Dermatofibroma","desc":"Firm, small nodules, usually harmless but should be monitored for changes.","color":"#D5F5E3"},
+        {"title":"Melanocytic Nevi","desc":"Common moles; some may require monitoring for malignancy.","color":"#FADBD8"},
+        {"title":"Melanoma","desc":"Highly dangerous skin cancer. Early detection can save lives.","color":"#FCF3CF"},
+        {"title":"Vascular Lesions","desc":"Abnormal blood vessel growths that may appear as red or purple marks.","color":"#F5CBA7"}
+    ] %}
+    {% for c in cancer_types %}
+    <div style="
+        background: {{ c.color }};
+        padding:20px;
+        border-radius:12px;
+        box-shadow:0 10px 25px rgba(0,0,0,0.08);
+        transition:0.3s;
+        width:100%;
+        min-height:180px;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        text-align:center;
+        cursor:pointer;"
+        onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.15)';" 
+        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 25px rgba(0,0,0,0.08)';">
+        <h3 style="color:#2c3e50; margin-bottom:10px; font-size:1.2em;">{{ c.title }}</h3>
+        <p style="color:#555; font-size:0.95em; margin:0 10px;">{{ c.desc }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Call to Action -->
+<div style="text-align:center; margin-top:50px;">
+    <a href="{{ url_for('detect') }}" style="
+        background:#2c3e50;
+        color:white;
+        padding:15px 30px;
+        border-radius:50px;
+        text-decoration:none;
+        font-size:1.1em;
+        box-shadow:0 6px 20px rgba(0,0,0,0.15);
+        transition:0.3s;"
+        onmouseover="this.style.background='#34495e'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.25)';"
+        onmouseout="this.style.background='#2c3e50'; this.style.boxShadow='0 6px 20px rgba(0,0,0,0.15)';">
+        Start Detection
+    </a>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="text-align:center; margin-bottom:30px;">
+    <h2 style="color:#2c3e50;">Skin Cancer Detection</h2>
+    <p>Upload a skin image and get a prediction from our AI model with <strong>98.57% accuracy</strong>.</p>
+</div>
+
+<div style="max-width:500px; margin:0 auto; background:rgba(255,255,255,0.95); padding:30px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1);">
+    <form method="post" enctype="multipart/form-data" id="detectForm">
+        <label for="image" style="font-weight:bold; margin-bottom:10px; display:block;">Upload Skin Image:</label>
+        <input type="file" id="image" name="image" accept="image/*" required style="padding:10px; width:100%; border-radius:6px; border:1px solid #ccc; margin-bottom:20px;">
+        
+        <div style="text-align:center; margin-bottom:20px;">
+            <img id="preview" src="#" alt="Image Preview" style="max-width:100%; display:none; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+        </div>
+
+        <button type="submit" style="background:#2c3e50; color:white; padding:12px 25px; border:none; border-radius:8px; font-size:1em; cursor:pointer; transition:0.3s;">
+            Predict
+        </button>
+    </form>
+</div>
+
+{% if prediction %}
+<div style="max-width:500px; margin:30px auto; padding:20px; background:rgba(255,255,255,0.95); border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1); text-align:center;">
+    <h3 style="color:#e74c3c;">Prediction: {{ prediction }}</h3>
+    <p style="font-size:1.1em;">Confidence: {{ confidence | round(2) }}%</p>
+    <img src="{{ url_for('static', filename='uploads/' ~ filename) }}" alt="Uploaded Image" style="max-width:100%; border-radius:8px; margin-top:15px;">
+</div>
+{% endif %}
+
+<script>
+    // Image preview
+    document.getElementById('image').onchange = function(event) {
+        let preview = document.getElementById('preview');
+        preview.src = URL.createObjectURL(event.target.files[0]);
+        preview.style.display = 'block';
+    };
+</script>
+{% endblock %}

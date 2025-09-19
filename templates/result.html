@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="max-width:600px; margin:40px auto; background:rgba(255,255,255,0.95); padding:30px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1); text-align:center;">
+    <h2 style="color:#2c3e50; margin-bottom:25px;">Prediction Result</h2>
+    
+    <div style="font-size:18px; margin-bottom:15px;">
+        <strong>Prediction:</strong> <span style="color:#e74c3c;">{{ prediction }}</span>
+    </div>
+    <div style="font-size:18px; margin-bottom:25px;">
+        <strong>Confidence:</strong> <span style="color:#27ae60;">{{ confidence | round(2) }}%</span>
+    </div>
+    
+    <img src="{{ url_for('uploaded_file', filename=filename) }}" alt="Uploaded Image" style="max-width:400px; border-radius:8px; box-shadow:0 5px 15px rgba(0,0,0,0.2); margin-bottom:25px;">
+
+    <a href="{{ url_for('detect') }}" style="display:inline-block; padding:12px 25px; background:#2c3e50; color:white; text-decoration:none; border-radius:8px; transition:0.3s;">
+        Predict Another Image
+    </a>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="max-width:450px; margin:40px auto; background:rgba(255,255,255,0.95); padding:30px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1);">
+    <h2 style="text-align:center; color:#2c3e50; margin-bottom:25px;">Register</h2>
+    
+    <form method="post" style="display:flex; flex-direction:column;">
+        <label style="margin-bottom:5px; font-weight:bold;">Username:</label>
+        <input type="text" name="username" required style="padding:10px; margin-bottom:15px; border-radius:6px; border:1px solid #ccc;">
+
+        <label style="margin-bottom:5px; font-weight:bold;">Email:</label>
+        <input type="email" name="email" required style="padding:10px; margin-bottom:15px; border-radius:6px; border:1px solid #ccc;">
+
+        <label style="margin-bottom:5px; font-weight:bold;">Password:</label>
+        <input type="password" name="password" required style="padding:10px; margin-bottom:25px; border-radius:6px; border:1px solid #ccc;">
+
+        <button type="submit" style="padding:12px; background:#2c3e50; color:white; border:none; border-radius:8px; cursor:pointer; transition:0.3s;">
+            Register
+        </button>
+    </form>
+
+    <p style="text-align:center; margin-top:15px; color:#34495e;">
+        Already have an account? 
+        <a href="{{ url_for('login') }}" style="color:#e67e22; text-decoration:none; font-weight:bold;">Login here</a>
+    </p>
+</div>
+{% endblock %}

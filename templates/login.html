@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="max-width:400px; margin:60px auto; background:rgba(255,255,255,0.95); padding:30px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1);">
+    <h2 style="text-align:center; color:#2c3e50; margin-bottom:25px;">Login</h2>
+    <form method="POST" style="display:flex; flex-direction:column;">
+        <input type="text" name="username" placeholder="Username" required
+               style="padding:12px; margin-bottom:15px; border-radius:6px; border:1px solid #ccc; font-size:16px;">
+        <input type="password" name="password" placeholder="Password" required
+               style="padding:12px; margin-bottom:20px; border-radius:6px; border:1px solid #ccc; font-size:16px;">
+        <button type="submit"
+                style="padding:12px; background:#2c3e50; color:white; font-size:16px; border:none; border-radius:8px; cursor:pointer; transition:0.3s;">
+            Login
+        </button>
+    </form>
+    <p style="text-align:center; margin-top:15px; font-size:14px;">
+        Don't have an account? <a href="{{ url_for('register') }}" style="color:#e74c3c; text-decoration:none;">Register here</a>
+    </p>
+</div>
+{% endblock %}

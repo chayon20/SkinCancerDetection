@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="max-width:500px; margin:30px auto; background:rgba(255,255,255,0.95); padding:30px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.1);">
+    <h2 style="text-align:center; color:#2c3e50; margin-bottom:20px;">Profile</h2>
+
+    <div style="margin-bottom:15px;">
+        <strong>Username:</strong> <span style="color:#34495e;">{{ user['username'] }}</span>
+    </div>
+    <div style="margin-bottom:15px;">
+        <strong>Email:</strong> <span style="color:#34495e;">{{ user['email'] }}</span>
+    </div>
+    <div style="margin-bottom:25px;">
+        <strong>Verified:</strong> 
+        <span style="color:{{ 'green' if user['is_verified'] else 'red' }};">
+            {{ "Yes" if user['is_verified'] else "No" }}
+        </span>
+    </div>
+
+    <div style="text-align:center;">
+        <a href="{{ url_for('edit_profile') }}" 
+           style="display:inline-block; background:#2c3e50; color:white; padding:12px 25px; border-radius:8px; text-decoration:none; transition:0.3s;">
+            Edit Profile
+        </a>
+    </div>
+</div>
+{% endblock %}

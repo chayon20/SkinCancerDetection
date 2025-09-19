@@ -105,7 +105,13 @@ The Flask-based web app includes:
 **Sample Screens:** Home | Login/Register | Upload & Detect | Prediction Results  
 
 ---
+---
+## Project Demo Video
+<a href="https://www.youtube.com/watch?v=ekwOqZq45rc" target="_blank">
+  <img src="https://img.youtube.com/vi/ekwOqZq45rc/maxresdefault.jpg" alt="Watch the Demo" width="800" />
+</a>
 
+---
 ## 🚀 Project Setup
 
 ### 🔧 Requirements

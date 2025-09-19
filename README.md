@@ -117,7 +117,7 @@ The Flask-based web app includes:
 ### 📥 Installation
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/SkinCancerDetection.git
+git clone https://github.com/chayon20/SkinCancerDetection
 cd SkinCancerDetection
 
 # Install dependencies
